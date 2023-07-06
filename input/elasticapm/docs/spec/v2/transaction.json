@@ -1036,6 +1036,17 @@
       ],
       "maxLength": 1024
     },
+    "profiler_stack_trace_ids": {
+      "description": "The ids of universal profiler stacktraces which were sampled during the execution of this transaction",
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "minItems": 0
+    },
     "result": {
       "description": "Result of the transaction. For HTTP-related transactions, this should be the status code formatted like 'HTTP 2xx'.",
       "type": [

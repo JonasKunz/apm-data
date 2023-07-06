@@ -958,6 +958,8 @@ type transaction struct {
 	// is captured. If a transaction is unsampled no spans and less context
 	// information will be reported.
 	Sampled nullable.Bool `json:"sampled"`
+	// The ids of universal profiler stacktraces which were sampled during the execution of this transaction
+	ProfilerStackTraceIds []string `json:"profiler_stack_trace_ids"`
 }
 
 type log struct {

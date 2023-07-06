@@ -2613,7 +2613,7 @@ func (val *transactionRoot) processNestedSource() error {
 }
 
 func (val *transaction) IsSet() bool {
-	return val.Marks.IsSet() || val.Timestamp.IsSet() || val.OTel.IsSet() || (len(val.Links) > 0) || val.TraceID.IsSet() || val.ID.IsSet() || val.ParentID.IsSet() || val.Name.IsSet() || val.Type.IsSet() || val.Result.IsSet() || (len(val.DroppedSpanStats) > 0) || val.Outcome.IsSet() || val.FAAS.IsSet() || val.Session.IsSet() || val.Context.IsSet() || val.UserExperience.IsSet() || val.SpanCount.IsSet() || val.SampleRate.IsSet() || val.Duration.IsSet() || val.Sampled.IsSet()
+	return val.Marks.IsSet() || val.Timestamp.IsSet() || val.OTel.IsSet() || (len(val.Links) > 0) || val.TraceID.IsSet() || val.ID.IsSet() || val.ParentID.IsSet() || val.Name.IsSet() || val.Type.IsSet() || val.Result.IsSet() || (len(val.DroppedSpanStats) > 0) || val.Outcome.IsSet() || val.FAAS.IsSet() || val.Session.IsSet() || val.Context.IsSet() || val.UserExperience.IsSet() || val.SpanCount.IsSet() || val.SampleRate.IsSet() || val.Duration.IsSet() || val.Sampled.IsSet() || (len(val.ProfilerStackTraceIds) > 0)
 }
 
 func (val *transaction) Reset() {
@@ -2643,6 +2643,7 @@ func (val *transaction) Reset() {
 	val.SampleRate.Reset()
 	val.Duration.Reset()
 	val.Sampled.Reset()
+	val.ProfilerStackTraceIds = val.ProfilerStackTraceIds[:0]
 }
 
 func (val *transaction) validate() error {

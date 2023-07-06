@@ -1456,6 +1456,12 @@ func mapToTransactionModel(from *transaction, event *modelpb.APMEvent) {
 	if out.Type == "" {
 		out.Type = "unknown"
 	}
+	if len(from.ProfilerStackTraceIds) > 0 {
+		event.Transaction.ProfilerStackTraceIds = make([]string, len(from.ProfilerStackTraceIds))
+		for i, stackTraceId := range from.ProfilerStackTraceIds {
+			event.Transaction.ProfilerStackTraceIds[i] = stackTraceId
+		}
+	}
 }
 
 func mapToLogModel(from *log, event *modelpb.APMEvent) {
